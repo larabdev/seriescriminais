@@ -1,0 +1,201 @@
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    /* remove pequenos espaços em linha */
+    object-fit: cover;
+    /* útil para imagens em cards/crops */
+}
+
+.card-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 10px 16px;
+    background: #138c8a;
+}
+
+
+/* marca / brand */
+
+.nav .brand {
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+
+/* links - desktop */
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+/* toggle (esconde checkbox, mostra label) */
+
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    display: none;
+    font-size: 1.6rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+/* MOBILE: abaixo de 768px */
+
+@media (max-width: 767px) {
+    .nav {
+        align-items: center;
+    }
+    .nav-links {
+        display: none;
+        /* escondido por padrão */
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+        background: #0f6f6d;
+        padding: 10px;
+        margin-top: 8px;
+    }
+    .nav-toggle {
+        display: block;
+    }
+    /* checkbox ainda escondido visualmente */
+    .nav-toggle-label {
+        display: block;
+    }
+    /* ícone de menu */
+    /* quando checkbox marcado, mostra os links */
+    .nav-toggle:checked+.nav-toggle-label+.nav-links {
+        display: flex;
+    }
+}
+
+.table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+
+/* alternativa: transformar em cards em telas muito pequenas */
+
+@media (max-width: 520px) {
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+    thead {
+        display: none;
+    }
+    tr {
+        margin-bottom: 12px;
+        background: #fafafa;
+        padding: 10px;
+        border-radius: 6px;
+    }
+    td {
+        display: flex;
+        justify-content: space-between;
+        padding: 6px 10px;
+    }
+    td::before {
+        content: attr(data-label);
+        /* precisa acrescentar data-label no HTML */
+        font-weight: 600;
+    }
+}
+
+html {
+    font-size: 16px;
+}
+
+
+/* base */
+
+h1 {
+    font-size: clamp(1.6rem, 4.8vw, 3rem);
+    /* mínimo 1.6rem, ideal 4.8vw, máximo 3rem */
+    line-height: 1.1;
+}
+
+h2 {
+    font-size: clamp(1.2rem, 3.2vw, 2rem);
+    line-height: 1.2;
+}
+
+p {
+    font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 16px;
+    box-sizing: border-box;
+}
+
+
+/* Mobile first — ajustes para tablets */
+
+@media (min-width: 768px) {
+    /* estilos para tablets e desktops médios */
+}
+
+
+/* Desktop large */
+
+@media (min-width: 1200px) {
+    /* telas grandes */
+}
+
+
+/* Ajustes específicos para muito pequenos */
+
+@media (max-width: 420px) {
+    body {
+        font-size: 14px;
+    }
+    .nav-links {
+        gap: 10px;
+    }
+}
